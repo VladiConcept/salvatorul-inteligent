@@ -15,7 +15,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -112,10 +111,15 @@ app.get("/", async (req, res) => {
   res.send("Server is running!");
 });
 
-app.listen(PORT, async () => {
-  console.log("Server starting...");
-  await getNgrokUrl();
-  console.log("Server running at http://localhost:" + PORT);
+// app.listen(PORT, async () => {
+//   console.log("Server starting...");
+//   await getNgrokUrl();
+//   console.log("Server running at http://localhost:" + PORT);
+// });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 app.get("/get-url", async (req, res) => {
