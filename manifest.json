@@ -8,13 +8,56 @@
     "theme_color": "#4CAF50",
     "icons": [
       {
-        "src": "icons/icon-192x192.png",
-        "sizes": "192x192",
+        "src": "public/background.jpg",
+        "sizes": "1365x2048",
         "type": "image/png"
       },
       {
-        "src": "icons/icon-512x512.png",
-        "sizes": "512x512",
+        "src": "public/icons/haus.png",
+        "sizes": "598x417",
+        "type": "image/png"
+      },
+      {
+        "src": "public/icons/info.png",
+        "sizes": "540x374",
+        "type": "image/png"
+      },
+      {
+        "src": "public/icons/logo nou.png",
+        "sizes": "1377x688",
+        "type": "image/png"
+      },
+      {
+        "src": "public/icons/manual.png",
+        "sizes": "657x379",
+        "type": "image/png"
+      },
+      {
+        "src": "public/icons/quiz.png",
+        "sizes": "533x393",
+        "type": "image/png"
+      },
+      {
+        "src": "public/icons/yt.png",
+        "sizes": "578x373",
+        "type": "image/png"
+      },
+      {
+        "src": "public/icons/square.png",
+        "sizes": "1100x1100",
+        "type": "image/png"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/public/icons/wide.png",
+        "sizes": "1906x953",
+        "type": "image/png",
+        "form_factor": "wide"
+      },
+      {
+        "src": "public/icons/logo nou.png",
+        "sizes": "1377x688",
         "type": "image/png"
       }
     ]
