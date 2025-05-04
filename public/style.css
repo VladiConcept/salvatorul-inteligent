@@ -323,7 +323,7 @@ label input[type="radio"] {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 40px;
 
         position: fixed;
         left: 50%;
