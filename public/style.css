@@ -315,6 +315,10 @@ label input[type="radio"] {
         position: relative;
     }
 
+    #askBtn {
+        font-size: 5vw;
+    }
+
     #mainDiv {
         display: flex;
         flex-direction: column;

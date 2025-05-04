@@ -71,6 +71,7 @@ async function getBackendUrl() {
 
 async function sendMessage(msg) {
     addMsgElement("You", msg);
+    const botMsg = addMsgElement("Bot", "Se gandeste...");
 
     try {
         const res = await fetch(url + "/ask", {
@@ -81,6 +82,7 @@ async function sendMessage(msg) {
     
         const data = await res.json();
 
+        answerBox.removeChild(botMsg);
         addMsgElement("Bot", data.reply);
     }
     catch (error) {

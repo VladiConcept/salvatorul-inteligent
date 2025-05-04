@@ -1,0 +1,19 @@
+# Environment variables
+.env
+
+# Node dependencies
+node_modules/
+
+# Logs
+logs
+*.log
+
+# Test files
+test/
+
+# OS files
+.DS_Store
+
+# Optional: Ignore PDF in public folder
+public/MANUAL PRIM AJUTOR.pdf
+".env" 
