@@ -2,10 +2,25 @@ const CACHE_NAME = 'my-awesome-app-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css',
-  '/scripts.js',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+  '/chat.html',
+  '/manual.html',
+  '/quiz.html',
+  'videoclipuri.html',
+  '/style.css',
+  '/index.js',
+  '/chat.js',
+  '/quiz.js',
+  '/videoclipuri.js',
+  '/background.jpg',
+  '/MANUAL PRIM AJUTOR.pdf',
+  '/icons/haus.png',
+  '/icons/info.png',
+  '/icons/logo nou.png',
+  '/icons/manual.png',
+  '/icons/quiz.png',
+  '/icons/salv1.png',
+  '/icons/salv2.png',
+  '/icons/yt.png'
 ];
 
 self.addEventListener('install', (event) => {

@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import fs from "fs";
 import pdf from "pdf-parse";
 import OpenAI from "openai";
-import axios from "axios";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -125,25 +124,9 @@ app.get("/", async (req, res) => {
   res.send("Server is running!");
 });
 
-// app.listen(PORT, async () => {
-//   console.log("Server starting...");
-//   await getNgrokUrl();
-//   console.log("Server running at http://localhost:" + PORT);
-// });
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
-
-app.get("/get-url", async (req, res) => {
-  try {
-    const publicUrl = (process.env.API_URL || "http://localhost") + PORT;
-    res.json({ url: publicUrl });
-  } catch (error) {
-    console.error("Failed to retrieve the Ngrok URL", error);
-    res.status(500).json({ error: "Failed to retrieve the URL" });
-  }
 });
 
 let msgHistory = [
@@ -182,39 +165,3 @@ app.post("/ask", async (req, res) => {
     res.status(500).json({error: "Failed to send user message."});
   }
 });
-
-async function getNgrokUrl() {
-  try {
-    const res = await axios.get("http://127.0.0.1:4040/api/tunnels");
-    const publicUrl = res.data.tunnels[0].public_url;
-
-    const ENV_PATH = ".env";
-    const ENV_KEY = "REACT_APP_API_URL";
-
-    let env = "";
-    if (fs.existsSync(ENV_PATH)) {
-      env = fs.readFileSync(ENV_PATH, "utf8");
-    }
-
-    const lines = env.split('\n');
-    let found = false;
-
-    const newLines = lines.map((line) => {
-      if (line.startsWith(`${ENV_KEY}=`)) {
-        found = true;
-        return `${ENV_KEY}=${publicUrl}`;
-      }
-      return line;
-    });
-
-    if (!found) {
-      newLines.push(`${ENV_KEY}=${publicUrl}`);
-    }
-
-    fs.writeFileSync(ENV_PATH, newLines.join('\n'), "utf8");
-    console.log(`Updated .env with ${ENV_KEY}=${publicUrl}`);
-  }
-  catch (error) {
-    console.error("Failed to get Ngrok URL or update .env", error);
-  }
-}

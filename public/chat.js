@@ -6,12 +6,8 @@ const inputBox = document.getElementById("inputBox");
 const submitBtn = document.getElementById("submitBtn");
 
 let serverOnline = true;
-let url = "";
+const url = "https://salvatorul-inteligent.onrender.com";
 let canType = true;
-
-async() => {
-    await getBackendUrl();
-}
 
 document.addEventListener("keydown", function(event) {
     if (event.key == "Enter") {
@@ -56,18 +52,6 @@ function mockSendMessage(msg) {
 }
 
 addMsgElement("Bot", "Cu ce va pot ajuta?");
-
-async function getBackendUrl() {
-    try {
-      const res = await fetch("http://localhost:3000/get-url");
-      const data = await res.json();
-      url = data.url;
-      console.log("Backend URL is:", url);
-    }
-    catch (error) {
-      console.error("Failed to fetch backend URL:", error);
-    }
-}
 
 async function sendMessage(msg) {
     addMsgElement("You", msg);
