@@ -32,6 +32,20 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const pdfPath = path.join(__dirname, "public", "MANUAL PRIM AJUTOR.pdf");
 
+// pt aplicatie
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then((registration) => {
+        console.log('Service Worker registered with scope: ', registration.scope);
+      })
+      .catch((error) => {
+        console.log('Service Worker registration failed: ', error);
+      });
+  });
+}
+
 // citirea manualului pdf
 try {
   const pdfDataBuffer = fs.readFileSync(pdfPath);
