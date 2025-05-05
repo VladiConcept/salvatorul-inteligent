@@ -407,6 +407,7 @@ label input[type="radio"] {
         gap: 10vh;
     
         position:absolute;
+        padding-bottom: 1000px;
         left: 50%;
         top: 1%;
         transform: translate(-50%, 20%);
